@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Working area, backups and session scratch (never public)
+_work/
+THESIS_ORIGINAL.ipynb
+INSTRUCTIONS.md
+Context.txt
+abstract.txt
+_chunk_*.txt
+_full_dump.txt
+_cellmap.txt
+current.txt
+translate.txt
+typeerror.txt
+structure.txt
