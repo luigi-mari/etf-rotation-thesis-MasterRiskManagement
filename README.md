@@ -26,12 +26,18 @@ This diagnostic formally distinguishes features with **cross-sectional** predict
 | | Sharpe ratio | **0.993** | 0.790 |
 | | Sortino | **1.452** | 1.143 |
 | | Max drawdown | **−21.6%** | −32.2% |
+| | Calmar (CAGR / max DD) | **0.71** | 0.38 |
+| | Max time underwater | **81 wks** | 103 wks |
 | **Out-of-sample** (Jan 2022 – May 2026, N=228) | Annual return (geom.) | **23.06%** | 10.61% |
 | | Sharpe ratio | **1.380** | 0.683 |
 | | Sortino | **2.320** | 1.030 |
 | | Max drawdown | **−13.6%** | −23.4% |
+| | Calmar (CAGR / max DD) | **1.69** | 0.45 |
+| | Max time underwater | **30 wks** | 100 wks |
 
 Out-of-sample annualised alpha of **+13.4%** (t = 2.87, p = 0.004, HAC-robust); full-sample alpha +5.6% (t = 2.46, p = 0.014), beta ≈ 0.77. The alpha/beta split is structurally stable across the pre/post boundary (Δalpha significant at ~95%, Δbeta insignificant).
+
+**Trading realism:** headline figures are gross. With a 5 bps round-trip commission and ≈23% weekly one-way turnover, full-sample net-of-cost Sharpe is ≈ **0.91** — the edge survives realistic trading friction.
 
 ## Repository contents
 
