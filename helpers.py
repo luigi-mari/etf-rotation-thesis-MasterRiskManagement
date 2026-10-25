@@ -27,6 +27,7 @@ THESIS-specific tuning constants (XGB_PARAMS, SEARCH_SPACE, ...) stay in THESIS.
 the functions here take them as explicit parameters.
 """
 
+import os
 import numpy as np
 import pandas as pd
 from numba import njit
@@ -1492,7 +1493,8 @@ def load_weekly_universe(excel_path: str, universe_keep, anchor_start: str,
     for tkr in [benchmark, "^VIX"]:
         if tkr in raw_data: continue
             # Nome pulito per il file locale (es. '^VIX' diventa 'vix.xlsx')
-        file_cache = f"{tkr.replace('^', '').lower()}.xlsx"
+        file_cache = os.path.join("data", f"{tkr.replace('^', '').lower()}.xlsx")
+        os.makedirs(os.path.dirname(file_cache), exist_ok=True)
         try:
             df = yf.download(tkr, start=anchor_start, interval="1d", progress=False, auto_adjust=True)
             if isinstance(df.columns, pd.MultiIndex):
@@ -1970,7 +1972,8 @@ def plot_learning_curve(evals_result: dict, best_iter: int) -> None:
     ax2.legend(loc="upper right", fontsize=9)
 
     _plt.tight_layout()
-    _plt.savefig("learning_curve.png", bbox_inches="tight", dpi=150)
+    os.makedirs("figures", exist_ok=True)
+    _plt.savefig("figures/learning_curve.png", bbox_inches="tight", dpi=150)
     _plt.show()
 
     # Diagnostica testuale
@@ -2115,7 +2118,8 @@ class RunStore:
         ax2.grid(True, which="both", ls=":", alpha=0.4)
 
         _plt.tight_layout()
-        _plt.savefig("pnl_comparison.png", bbox_inches="tight", dpi=300)
+        os.makedirs("figures", exist_ok=True)
+        _plt.savefig("figures/pnl_comparison.png", bbox_inches="tight", dpi=300)
         _plt.show()
 
         print("\n" + "=" * 55)
